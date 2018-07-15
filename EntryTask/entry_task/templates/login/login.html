@@ -1,0 +1,19 @@
+<div id="content-container" class="container p-none">
+    <div class="lgn-container col-lg-8">
+        <form id="login-form" method="post">
+            {% csrf_token %}
+            <table class="table">
+                {{form.as_table}}
+            </table>
+            {% if not login_success %}
+            <p class=" label label-danger">
+                Username or password are wrong.
+                Please try again.
+            </p>
+            {% endif %}
+            <input type="submit" value="Login"
+                   class="btn btn-primary pull-right"/>
+            <input type="hidden" name="next" value="{{ next }}"/>
+        </form>
+    </div>
+</div>

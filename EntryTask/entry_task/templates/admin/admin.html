@@ -1,0 +1,16 @@
+<span><h1>Admin Page</h1><a href="{% url 'admin_logout_page' %}">Log out</a></span>
+
+<h2>Create event</h2>
+<div id="content-container" class="container p-none">
+    <div class="lgn-container col-lg-8">
+        <form id="event-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table">
+                {{event_form.as_table}}
+                {{images_form.as_table}}
+            </table>
+            <input type="submit" value="Upload"
+                   class="btn btn-primary pull-right"/>
+        </form>
+    </div>
+</div>
